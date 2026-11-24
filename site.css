@@ -53,14 +53,15 @@ summary { cursor: pointer; }
 p, h2 { margin: 0; }
 h2 { font-size: clamp(1.55rem, 2.7vw, 2.1rem); font-weight: 640; letter-spacing: -.05em; }
 .editor-summary { padding-top: clamp(1.75rem, 3.5vw, 3rem); }
-.editor-summary p { margin: .45rem 0 1.2rem; color: var(--muted); font-size: .9375rem; line-height: 1.45; }
+.editor-summary p { margin: .75rem 0 0; color: var(--muted); font-size: .9375rem; line-height: 1.45; }
 .table-scroll { overflow-x: auto; }
 .year-table { min-width: 44rem; border-spacing: 0; font-variant-numeric: tabular-nums; }
 .year-table :is(th, td) { padding: .49rem .7rem; text-align: center; font-size: .9rem; }
 .year-table tr > :first-child { position: sticky; left: 0; text-align: left; white-space: nowrap; }
 .year-table tbody th { background: white; color: inherit; border-top: 0; font-weight: 550; }
 .year-table thead th { background: #193f43; color: #fff; }
-.year-table tfoot :is(th, td) { background: #eaf2ef; font-weight: 650; }
+.year-table td { color: #657374; }
+.year-table td.nonzero { background: #e0f2e9; color: #164e41; font-weight: 700; }
 .library { padding-block: clamp(2rem, 3.5vw, 3rem) 4rem; }
 .library h2 { margin-bottom: 1rem; }
 .dataset-link, .source a { color: var(--teal); font-size: .875rem; font-weight: 550; }

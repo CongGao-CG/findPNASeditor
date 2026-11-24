@@ -87,16 +87,12 @@ def editor_table(works):
     columns = range(min(years), max(years) + 1) if years else []
     edited = defaultdict(Counter)
     contributed = defaultdict(Counter)
-    edited_totals = Counter()
-    contributed_totals = Counter()
     for work, year in zip(works, years):
         name = canonical_name(work["credited_name"])
         if work["credit"] == "Edited by":
             edited[name][year] += 1
-            edited_totals[year] += 1
         elif work["credit"] == "Contributed by":
             contributed[name][year] += 1
-            contributed_totals[year] += 1
 
     def count_row(label, edits, contributions):
         cells = []
@@ -104,7 +100,7 @@ def editor_table(works):
             value = str(edits[year])
             if contributions[year]:
                 value += f"/{contributions[year]}"
-            cells.append(f"<td>{value}</td>")
+            cells.append("<td>0</td>" if value == "0" else f'<td class="nonzero">{value}</td>')
         return f'<tr><th scope="row">{escape(label)}</th>{"".join(cells)}</tr>'
 
     names = sorted(edited.keys() | contributed.keys(),
@@ -115,7 +111,6 @@ def editor_table(works):
         "<tbody>",
         *(count_row(name, edited[name], contributed[name]) for name in names),
         "</tbody>",
-        f'<tfoot>{count_row("Totals", edited_totals, contributed_totals)}</tfoot>',
     ]
 
 

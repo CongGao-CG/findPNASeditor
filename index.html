@@ -23,33 +23,31 @@
     </div>
   </header>
   <main>
-    <section class="frame editor-summary" aria-labelledby="editor-title">
-      <h2 id="editor-title">Editorial credits by year</h2>
-      <p id="editor-description">Counts show edited / contributed articles on tropical and extratropical cyclones. A single number means edited articles only.</p>
-      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="editor-title">
-        <table class="year-table" aria-labelledby="editor-title" aria-describedby="editor-description">
+    <div class="frame editor-summary">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Editor summary">
+        <table class="year-table" aria-label="Counts by editor and publication year" aria-describedby="editor-description">
 <!-- BEGIN EDITOR_TABLE -->
 <thead><tr><th scope="col">Editors</th><th scope="col">2020</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th><th scope="col">2024</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead>
 <tbody>
-<tr><th scope="row">Kerry Emanuel</th><td>5</td><td>0</td><td>0</td><td>1</td><td>1/1</td><td>1</td><td>2</td></tr>
-<tr><th scope="row">Richard Rotunno</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td></tr>
-<tr><th scope="row">Isaac Held</th><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-<tr><th scope="row">Michael E. Mann</th><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0/1</td><td>0</td></tr>
-<tr><th scope="row">Andrea Rinaldo</th><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Anny Cazenave</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Arild Underdal</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Benjamin D. Santer</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Catherine L. Kling</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Dennis Hartmann</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
-<tr><th scope="row">Eric D’Asaro</th><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">James B. Elsner</th><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><th scope="row">Zhisheng An</th><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Kerry Emanuel</th><td class="nonzero">5</td><td>0</td><td>0</td><td class="nonzero">1</td><td class="nonzero">1/1</td><td class="nonzero">1</td><td class="nonzero">2</td></tr>
+<tr><th scope="row">Richard Rotunno</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="nonzero">2</td><td class="nonzero">1</td></tr>
+<tr><th scope="row">Isaac Held</th><td>0</td><td>0</td><td>0</td><td class="nonzero">1</td><td>0</td><td class="nonzero">1</td><td>0</td></tr>
+<tr><th scope="row">Michael E. Mann</th><td>0</td><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td class="nonzero">0/1</td><td>0</td></tr>
+<tr><th scope="row">Andrea Rinaldo</th><td>0</td><td>0</td><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Anny Cazenave</th><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Arild Underdal</th><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Benjamin D. Santer</th><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Catherine L. Kling</th><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Dennis Hartmann</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="nonzero">1</td><td>0</td></tr>
+<tr><th scope="row">Eric D’Asaro</th><td>0</td><td>0</td><td>0</td><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">James B. Elsner</th><td>0</td><td>0</td><td>0</td><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">Zhisheng An</th><td>0</td><td class="nonzero">1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 </tbody>
-<tfoot><tr><th scope="row">Totals</th><td>9</td><td>2</td><td>1</td><td>4</td><td>1/1</td><td>5/1</td><td>3</td></tr></tfoot>
 <!-- END EDITOR_TABLE -->
         </table>
       </div>
-    </section>
+      <p id="editor-description">Counts show edited / contributed articles on tropical and extratropical cyclones. A single number means edited articles only.</p>
+    </div>
     <section id="articles" class="frame library" aria-labelledby="articles-title">
       <h2 id="articles-title">Articles</h2>
       <table class="article-table" aria-labelledby="articles-title">
