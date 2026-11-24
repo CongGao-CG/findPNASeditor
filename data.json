@@ -23,6 +23,7 @@
   "people": [
     {
       "name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2007,
@@ -68,6 +69,7 @@
     },
     {
       "name": "Richard Rotunno",
+      "openalex_author_url": "https://openalex.org/A5044172798",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2023,
@@ -113,6 +115,7 @@
     },
     {
       "name": "Isaac Held",
+      "openalex_author_url": "https://openalex.org/A5008203511",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2003,
@@ -158,6 +161,7 @@
     },
     {
       "name": "Michael E. Mann",
+      "openalex_author_url": "https://openalex.org/A5061339003",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2020,
@@ -203,6 +207,7 @@
     },
     {
       "name": "Andrea Rinaldo",
+      "openalex_author_url": "https://openalex.org/A5031779833",
       "nas_membership": {
         "membership_type": "International Member",
         "election_year": 2012,
@@ -248,6 +253,7 @@
     },
     {
       "name": "Anny Cazenave",
+      "openalex_author_url": "https://openalex.org/A5050918085",
       "nas_membership": {
         "membership_type": "International Member",
         "election_year": 2008,
@@ -293,6 +299,7 @@
     },
     {
       "name": "Arild Underdal",
+      "openalex_author_url": "https://openalex.org/A5054711505",
       "nas_membership": {
         "membership_type": "International Member",
         "election_year": 2017,
@@ -338,6 +345,7 @@
     },
     {
       "name": "Benjamin D. Santer",
+      "openalex_author_url": "https://openalex.org/A5017246427",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2011,
@@ -383,6 +391,7 @@
     },
     {
       "name": "Catherine L. Kling",
+      "openalex_author_url": "https://openalex.org/A5014133393",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2015,
@@ -428,6 +437,7 @@
     },
     {
       "name": "Dennis Hartmann",
+      "openalex_author_url": "https://openalex.org/A5045723322",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2016,
@@ -473,6 +483,7 @@
     },
     {
       "name": "Eric D’Asaro",
+      "openalex_author_url": "https://openalex.org/A5011355409",
       "nas_membership": {
         "membership_type": "Member",
         "election_year": 2014,
@@ -518,6 +529,7 @@
     },
     {
       "name": "James B. Elsner",
+      "openalex_author_url": "https://openalex.org/A5008652955",
       "nas_membership": null,
       "annual_counts": [
         {
@@ -559,6 +571,7 @@
     },
     {
       "name": "Zhisheng An",
+      "openalex_author_url": "https://openalex.org/A5048579498",
       "nas_membership": {
         "membership_type": "International Member",
         "election_year": 2016,
@@ -612,6 +625,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -623,6 +637,7 @@
       "role": "editor",
       "credited_name": "Richard Rotunno",
       "canonical_name": "Richard Rotunno",
+      "openalex_author_url": "https://openalex.org/A5044172798",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -634,6 +649,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -645,6 +661,7 @@
       "role": "editor",
       "credited_name": "Kerry Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -656,6 +673,7 @@
       "role": "editor",
       "credited_name": "Dennis Hartmann",
       "canonical_name": "Dennis Hartmann",
+      "openalex_author_url": "https://openalex.org/A5045723322",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -667,6 +685,7 @@
       "role": "editor",
       "credited_name": "Richard Rotunno",
       "canonical_name": "Richard Rotunno",
+      "openalex_author_url": "https://openalex.org/A5044172798",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -678,6 +697,7 @@
       "role": "contributor",
       "credited_name": "Michael E. Mann",
       "canonical_name": "Michael E. Mann",
+      "openalex_author_url": "https://openalex.org/A5061339003",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -689,6 +709,7 @@
       "role": "editor",
       "credited_name": "Isaac Held",
       "canonical_name": "Isaac Held",
+      "openalex_author_url": "https://openalex.org/A5008203511",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -700,6 +721,7 @@
       "role": "editor",
       "credited_name": "Richard Rotunno",
       "canonical_name": "Richard Rotunno",
+      "openalex_author_url": "https://openalex.org/A5044172798",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -711,6 +733,7 @@
       "role": "contributor",
       "credited_name": "Kerry Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -722,6 +745,7 @@
       "role": "editor",
       "credited_name": "Kerry Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -733,6 +757,7 @@
       "role": "editor",
       "credited_name": "James B. Elsner",
       "canonical_name": "James B. Elsner",
+      "openalex_author_url": "https://openalex.org/A5008652955",
       "accepting_editorial_board_member": "Robert E. Dickinson",
       "note": "PNAS identifies James B. Elsner as the guest editor."
     },
@@ -744,6 +769,7 @@
       "role": "editor",
       "credited_name": "Isaac Held",
       "canonical_name": "Isaac Held",
+      "openalex_author_url": "https://openalex.org/A5008203511",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -755,6 +781,7 @@
       "role": "editor",
       "credited_name": "Kerry Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -766,6 +793,7 @@
       "role": "editor",
       "credited_name": "Eric D’Asaro",
       "canonical_name": "Eric D’Asaro",
+      "openalex_author_url": "https://openalex.org/A5011355409",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -777,6 +805,7 @@
       "role": "editor",
       "credited_name": "Andrea Rinaldo",
       "canonical_name": "Andrea Rinaldo",
+      "openalex_author_url": "https://openalex.org/A5031779833",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -788,6 +817,7 @@
       "role": "editor",
       "credited_name": "Michael E. Mann",
       "canonical_name": "Michael E. Mann",
+      "openalex_author_url": "https://openalex.org/A5061339003",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -799,6 +829,7 @@
       "role": "editor",
       "credited_name": "Zhisheng An",
       "canonical_name": "Zhisheng An",
+      "openalex_author_url": "https://openalex.org/A5048579498",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -810,6 +841,7 @@
       "role": "editor",
       "credited_name": "Arild Underdal",
       "canonical_name": "Arild Underdal",
+      "openalex_author_url": "https://openalex.org/A5054711505",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -821,6 +853,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -832,6 +865,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -843,6 +877,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -854,6 +889,7 @@
       "role": "commentary",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -865,6 +901,7 @@
       "role": "editor",
       "credited_name": "Benjamin D. Santer",
       "canonical_name": "Benjamin D. Santer",
+      "openalex_author_url": "https://openalex.org/A5017246427",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -876,6 +913,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -887,6 +925,7 @@
       "role": "editor",
       "credited_name": "Catherine L. Kling",
       "canonical_name": "Catherine L. Kling",
+      "openalex_author_url": "https://openalex.org/A5014133393",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -898,6 +937,7 @@
       "role": "editor",
       "credited_name": "Kerry A. Emanuel",
       "canonical_name": "Kerry Emanuel",
+      "openalex_author_url": "https://openalex.org/A5111787253",
       "accepting_editorial_board_member": null,
       "note": null
     },
@@ -909,6 +949,7 @@
       "role": "editor",
       "credited_name": "Anny Cazenave",
       "canonical_name": "Anny Cazenave",
+      "openalex_author_url": "https://openalex.org/A5050918085",
       "accepting_editorial_board_member": null,
       "note": null
     }

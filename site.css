@@ -37,11 +37,7 @@ summary { cursor: pointer; }
 .header-inner, .brand { display: flex; align-items: center; }
 .header-inner { min-height: 4.5rem; gap: clamp(1.25rem, 5vw, 5rem); }
 .brand { margin: 0; gap: .65rem; font-weight: 710; font-size: 1.1rem; letter-spacing: -.055em; }
-.brand-mark { display: flex; gap: 2px; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: .55rem; background: #123c41; }
-.brand-mark i { display: block; width: 3px; border-radius: 2px; background: #87e1c3; transform: skewY(-26deg); }
-.brand-mark i:nth-child(1) { height: 8px; }
-.brand-mark i:nth-child(2) { height: 15px; }
-.brand-mark i:nth-child(3) { height: 11px; }
+.brand-mark { display: block; flex: none; width: 2rem; height: 2rem; border-radius: .5rem; }
 .header-actions { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
 .topic-name { font-size: .9375rem; font-weight: 550; line-height: 1.35; }
 .freshness { position: relative; }
@@ -57,10 +53,13 @@ h2 { font-size: clamp(1.55rem, 2.7vw, 2.1rem); font-weight: 640; letter-spacing:
 .editor-summary p { margin: .75rem 0 0; color: var(--muted); font-size: .9375rem; line-height: 1.45; }
 .table-scroll { overflow-x: auto; }
 .year-table { min-width: 44rem; border-spacing: 0; font-variant-numeric: tabular-nums; }
-.year-table :is(th, td) { padding: .49rem .7rem; text-align: center; font-size: .9rem; }
+.year-table :is(th, td) { padding: .49rem .7rem; text-align: left; font-size: .9rem; }
 .year-table tr > :nth-child(2) { position: sticky; left: 0; text-align: left; white-space: nowrap; }
 .year-table tbody th { background: white; color: inherit; border-top: 0; font-weight: 550; }
-.nas-profile { margin-inline-start: .35rem; color: var(--teal); font-size: .8rem; font-weight: 550; }
+.editor-name, a.credit-name { color: #174e55; text-decoration: underline; text-decoration-color: #94b3b4; }
+.editor-name:hover, a.credit-name:hover { color: var(--teal); text-decoration-color: currentColor; }
+.nas-profile { display: inline-block; margin-inline-start: .45rem; padding: .1rem .43rem; border: 1px solid #c9bda1; border-radius: .3rem; background: #f7f1e5; color: #665127; font-size: .73rem; font-weight: 700; letter-spacing: .035em; text-decoration: none; vertical-align: .05em; }
+.nas-profile:hover { color: #483918; background: #efe4ce; }
 .year-table thead th { background: #193f43; color: #fff; }
 .year-table td { color: #657374; }
 .year-table td.nonzero { background: #e0f2e9; color: #164e41; font-weight: 700; }

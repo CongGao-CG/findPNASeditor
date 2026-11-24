@@ -14,7 +14,7 @@ from tempfile import TemporaryDirectory
 
 ROOT = Path(__file__).resolve().parents[1]
 COUNT_FILE = ROOT / "scripts" / "openalex_count.json"
-NAS_FILE = ROOT / "scripts" / "nas_members.json"
+PROFILES_FILE = ROOT / "scripts" / "editor_profiles.json"
 WORKS_FILTER = "primary_location.source.id:s125754415,topics.id:t11483,type:article,publication_year:2020-"
 ROLES = {
     "Edited by": "editor",
@@ -57,11 +57,12 @@ def freshness(snapshot, listed):
     ]
 
 
-def public_article(work):
+def public_article(work, profiles):
     doi = work["doi"].removeprefix("https://doi.org/")
     if not doi.startswith("10.1073/pnas.") or not doi.removeprefix("10.1073/pnas.").isalnum():
         raise ValueError(f"Invalid PNAS article DOI: {work['doi']!r}")
     name = work["credited_name"].strip()
+    canonical = canonical_name(name)
     return {
         "title": work["title"],
         "publication_date": date.fromisoformat(work["publication_date"]).isoformat(),
@@ -69,10 +70,20 @@ def public_article(work):
         "credit_source_url": f"https://www.pnas.org/doi/full/{doi}",
         "role": ROLES[work["credit"]],
         "credited_name": name or None,
-        "canonical_name": canonical_name(name) or None,
+        "canonical_name": canonical or None,
+        "openalex_author_url": profiles.get(canonical, {}).get("openalex_author_url"),
         "accepting_editorial_board_member": work["accepting_editorial_board_member"].strip() or None,
         "note": work["note"].strip() or None,
     }
+
+
+def author_link(name, url, css_class):
+    if not name:
+        return ""
+    if not url:
+        return f'<span class="{css_class}">{escape(name)}</span>'
+    return (f'<a class="{css_class}" href="{escape(url)}" target="_blank" rel="noopener" '
+            f'aria-label="OpenAlex author profile for {escape(name)}">{escape(name)}</a>')
 
 
 def article_row(number, article):
@@ -87,21 +98,23 @@ def article_row(number, article):
     if board:
         note = f"{note} Accepted by editorial board member {board}.".strip()
     note_html = f'<small class="article-note">{escape(note)}</small>' if note else ""
-    name_html = f'<span class="credit-name">{escape(name)}</span>' if name else ""
+    name_html = author_link(name, article["openalex_author_url"], "credit-name")
     return (
         '<tr>\n'
         f'  <td class="row-number">{number}</td>\n'
         f'  <td class="date"><time datetime="{day}">{day:%b} {day.day}, {day.year}</time></td>\n'
-        f'  <td class="work"><a class="article-title" href="{publisher_url}">{title}</a>{note_html}</td>\n'
+        f'  <td class="work"><a class="article-title" href="{publisher_url}" target="_blank" rel="noopener">{title}</a>{note_html}</td>\n'
         f'  <td class="person">{name_html}<span class="role {role}">{label}</span></td>\n'
-        f'  <td class="source"><a href="{publisher_url}" '
+        f'  <td class="source"><a href="{publisher_url}" target="_blank" rel="noopener" '
         f'aria-label="PNAS HTML for {title}">PNAS HTML</a></td>\n'
         '</tr>'
     )
 
 
 def build_dataset(works, snapshot):
-    articles = sorted(map(public_article, works), key=lambda a: a["publication_date"], reverse=True)
+    profiles = json.loads(PROFILES_FILE.read_text(encoding="utf-8"))
+    articles = sorted((public_article(work, profiles) for work in works),
+                      key=lambda a: a["publication_date"], reverse=True)
     article_years = [date.fromisoformat(a["publication_date"]).year for a in articles]
     years = list(range(min(article_years), max(article_years) + 1)) if article_years else []
     edited = defaultdict(Counter)
@@ -115,14 +128,15 @@ def build_dataset(works, snapshot):
 
     names = sorted(edited.keys() | contributed.keys(),
                    key=lambda name: (-edited[name].total(), -contributed[name].total(), name.casefold()))
-    nas_members = json.loads(NAS_FILE.read_text(encoding="utf-8"))
     people = []
     for name in names:
         annual_counts = [
             {"year": year, "edited": edited[name][year], "contributed": contributed[name][year]}
             for year in years
         ]
-        people.append({"name": name, "nas_membership": nas_members.get(name), "annual_counts": annual_counts})
+        profile = profiles.get(name, {})
+        people.append({"name": name, "openalex_author_url": profile.get("openalex_author_url"),
+                       "nas_membership": profile.get("nas_membership"), "annual_counts": annual_counts})
     roles = Counter(a["role"] for a in articles)
     return {
         "journal": "Proceedings of the National Academy of Sciences",
@@ -150,12 +164,13 @@ def editor_table(dataset):
                 value += f'/{counts["contributed"]}'
             cells.append("<td>0</td>" if value == "0" else f'<td class="nonzero">{value}</td>')
         name = escape(person["name"])
-        heading = name
+        heading = author_link(person["name"], person["openalex_author_url"], "editor-name")
         if membership := person["nas_membership"]:
             url = escape(membership["profile_url"])
-            description = f'{escape(membership["membership_type"])}, elected {membership["election_year"]}'
-            heading += (f' <a class="nas-profile" href="{url}" '
-                        f'title="{description}" aria-label="NAS profile for {name}, {description}">NAS</a>')
+            year = membership["election_year"]
+            description = f'{escape(membership["membership_type"])}, elected {year}'
+            heading += (f' <a class="nas-profile" href="{url}" target="_blank" rel="noopener" '
+                        f'title="{description}" aria-label="NAS profile for {name}, {description}">{year}</a>')
         rows.append(f'<tr><td class="row-number">{number}</td><th scope="row">{heading}</th>{"".join(cells)}</tr>')
     return [*rows, "</tbody>"]
 

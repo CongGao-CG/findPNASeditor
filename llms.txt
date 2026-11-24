@@ -13,4 +13,5 @@
 - `editor` means the person edited the paper. `contributor` means PNAS credited them as its contributing member. `commentary` identifies the commentary author. A separately named accepting editorial board member has their own field.
 - `people[].annual_counts` gives integer `edited` and `contributed` counts by publication year. Commentary is excluded from these two counts. The summary groups name variants under `canonical_name` from the article records.
 - `people[].nas_membership` gives the membership type, election year, and official U.S. National Academy of Sciences profile URL for confirmed members, including international members. A null value means no profile was confirmed.
+- `openalex_author_url` in each person and article record identifies the credited person’s verified OpenAlex author profile.
 - `listed_count` counts the records in this file. `openalex_count` and `openalex_count_checked_at` describe the most recent successful OpenAlex count check. A higher OpenAlex count means additional works may need to be added.
