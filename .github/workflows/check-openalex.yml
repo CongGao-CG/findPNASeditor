@@ -31,7 +31,7 @@ jobs:
       - name: Stage public site files
         run: |
           mkdir _site
-          cp -R index.html site.css site.js assets pnas_cyclone_editor_credits.csv _site/
+          cp -R index.html site.css assets _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

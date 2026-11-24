@@ -5,12 +5,11 @@ import csv
 import json
 import os
 import subprocess
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from html import escape
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +18,7 @@ WORKS_FILTER = "primary_location.source.id:s125754415,topics.id:t11483,type:arti
 ROLES = {
     "Edited by": ("editor", "Editor"),
     "Contributed by": ("contributor", "Contributor"),
+    "Commentary": ("commentary", "Commentary"),
     "No editor listed": ("unlisted", "No editor listed"),
 }
 
@@ -56,58 +56,73 @@ def freshness(snapshot, listed):
     ]
 
 
-def href(url):
-    parts = urlsplit(url)
-    if parts.scheme not in {"http", "https"} or not parts.netloc:
-        raise ValueError(f"Expected an article URL, got {url!r}")
-    return escape(url)
-
-
 def article_row(work):
     day = date.fromisoformat(work["publication_date"])
     role, label = ROLES[work["credit"]]
     name = work["credited_name"]
     title = escape(work["title"])
-    note = work["note"].strip()
+    doi = work["doi"].removeprefix("https://doi.org/")
+    if not doi.startswith("10.1073/pnas.") or not doi.removeprefix("10.1073/pnas.").isalnum():
+        raise ValueError(f"Invalid PNAS article DOI: {work['doi']!r}")
+    publisher_url = f"https://www.pnas.org/doi/full/{doi}"
+    note = "" if role == "commentary" else work["note"].strip()
     board = work["accepting_editorial_board_member"]
     if board:
         note = f"{note} Accepted by editorial board member {board}.".strip()
     note_html = f'<small class="article-note">{escape(note)}</small>' if note else ""
     name_html = f'<span class="credit-name">{escape(name)}</span>' if name else ""
     return (
-        f'<tr data-year="{day.year}" data-role="{role}" data-person="{escape(canonical_name(name))}">\n'
+        '<tr>\n'
         f'  <td class="date"><time datetime="{day}">{day:%b} {day.day}, {day.year}</time></td>\n'
-        f'  <td class="work"><a class="article-title" href="{href(work["doi"])}">{title}</a>{note_html}</td>\n'
+        f'  <td class="work"><a class="article-title" href="{publisher_url}">{title}</a>{note_html}</td>\n'
         f'  <td class="person">{name_html}<span class="role {role}">{label}</span></td>\n'
-        f'  <td class="source"><a href="{href(work["credit_source_url"])}" '
-        f'aria-label="Credit source for {title}">Credit source</a></td>\n'
+        f'  <td class="source"><a href="{publisher_url}" '
+        f'aria-label="PNAS HTML for {title}">PNAS HTML</a></td>\n'
         '</tr>'
     )
 
 
-def build_sections(works):
-    counts = Counter(work["credit"] for work in works)
-    editor_counts = Counter(
-        canonical_name(work["credited_name"]) for work in works if work["credit"] == "Edited by"
-    )
-    ranked = sorted(editor_counts.items(), key=lambda item: (-item[1], item[0].casefold()))
-    stats = [
-        ("Works", len(works)),
-        ("Edited", counts["Edited by"]),
-        ("Contributed", counts["Contributed by"]),
-        ("No editor listed", counts["No editor listed"]),
+def editor_table(works):
+    years = [date.fromisoformat(work["publication_date"]).year for work in works]
+    columns = range(min(years), max(years) + 1) if years else []
+    edited = defaultdict(Counter)
+    contributed = defaultdict(Counter)
+    edited_totals = Counter()
+    contributed_totals = Counter()
+    for work, year in zip(works, years):
+        name = canonical_name(work["credited_name"])
+        if work["credit"] == "Edited by":
+            edited[name][year] += 1
+            edited_totals[year] += 1
+        elif work["credit"] == "Contributed by":
+            contributed[name][year] += 1
+            contributed_totals[year] += 1
+
+    def count_row(label, edits, contributions):
+        cells = []
+        for year in columns:
+            value = str(edits[year])
+            if contributions[year]:
+                value += f"/{contributions[year]}"
+            cells.append(f"<td>{value}</td>")
+        return f'<tr><th scope="row">{escape(label)}</th>{"".join(cells)}</tr>'
+
+    names = sorted(edited.keys() | contributed.keys(),
+                   key=lambda name: (-edited[name].total(), -contributed[name].total(), name.casefold()))
+    headings = "".join(f'<th scope="col">{year}</th>' for year in columns)
+    return [
+        f'<thead><tr><th scope="col">Editors</th>{headings}</tr></thead>',
+        "<tbody>",
+        *(count_row(name, edited[name], contributed[name]) for name in names),
+        "</tbody>",
+        f'<tfoot>{count_row("Totals", edited_totals, contributed_totals)}</tfoot>',
     ]
-    years = sorted({date.fromisoformat(work["publication_date"]).year for work in works}, reverse=True)
+
+
+def build_sections(works):
     ordered = sorted(works, key=lambda work: work["publication_date"], reverse=True)
     return {
-        "STATS": [f"<div><dt>{label}</dt><dd>{total}</dd></div>" for label, total in stats],
-        "CHART": [
-            f'<li><span class="chart-name">{escape(name)}</span><span class="track" aria-hidden="true">'
-            f'<span style="width: {100 * total / ranked[0][1]:g}%"></span></span><strong>{total}</strong></li>'
-            for name, total in ranked[:3]
-        ],
-        "EDITORS": [f"<li><span>{escape(name)}</span><strong>{total}</strong></li>" for name, total in ranked],
-        "YEARS": [f'<option value="{year}">{year}</option>' for year in years],
+        "EDITOR_TABLE": editor_table(works),
         "ARTICLES": [article_row(work) for work in ordered],
     }
 
