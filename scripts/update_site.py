@@ -1,4 +1,4 @@
-"""Refresh the HTML credit tables and totals from the project CSV."""
+"""Generate the HTML credit tables and public JSON dataset from the project CSV."""
 
 import argparse
 import csv
@@ -14,12 +14,13 @@ from tempfile import TemporaryDirectory
 
 ROOT = Path(__file__).resolve().parents[1]
 COUNT_FILE = ROOT / "scripts" / "openalex_count.json"
+NAS_FILE = ROOT / "scripts" / "nas_members.json"
 WORKS_FILTER = "primary_location.source.id:s125754415,topics.id:t11483,type:article,publication_year:2020-"
 ROLES = {
-    "Edited by": ("editor", "Editor"),
-    "Contributed by": ("contributor", "Contributor"),
-    "Commentary": ("commentary", "Commentary"),
-    "No editor listed": ("unlisted", "No editor listed"),
+    "Edited by": "editor",
+    "Contributed by": "contributor",
+    "Commentary": "commentary",
+    "No editor listed": "unlisted",
 }
 
 
@@ -56,23 +57,40 @@ def freshness(snapshot, listed):
     ]
 
 
-def article_row(work):
-    day = date.fromisoformat(work["publication_date"])
-    role, label = ROLES[work["credit"]]
-    name = work["credited_name"]
-    title = escape(work["title"])
+def public_article(work):
     doi = work["doi"].removeprefix("https://doi.org/")
     if not doi.startswith("10.1073/pnas.") or not doi.removeprefix("10.1073/pnas.").isalnum():
         raise ValueError(f"Invalid PNAS article DOI: {work['doi']!r}")
-    publisher_url = f"https://www.pnas.org/doi/full/{doi}"
-    note = "" if role == "commentary" else work["note"].strip()
-    board = work["accepting_editorial_board_member"]
+    name = work["credited_name"].strip()
+    return {
+        "title": work["title"],
+        "publication_date": date.fromisoformat(work["publication_date"]).isoformat(),
+        "doi": doi,
+        "credit_source_url": f"https://www.pnas.org/doi/full/{doi}",
+        "role": ROLES[work["credit"]],
+        "credited_name": name or None,
+        "canonical_name": canonical_name(name) or None,
+        "accepting_editorial_board_member": work["accepting_editorial_board_member"].strip() or None,
+        "note": work["note"].strip() or None,
+    }
+
+
+def article_row(number, article):
+    day = date.fromisoformat(article["publication_date"])
+    role = article["role"]
+    label = "No editor listed" if role == "unlisted" else role.capitalize()
+    name = article["credited_name"]
+    title = escape(article["title"])
+    publisher_url = escape(article["credit_source_url"])
+    note = "" if role == "commentary" else (article["note"] or "")
+    board = article["accepting_editorial_board_member"]
     if board:
         note = f"{note} Accepted by editorial board member {board}.".strip()
     note_html = f'<small class="article-note">{escape(note)}</small>' if note else ""
     name_html = f'<span class="credit-name">{escape(name)}</span>' if name else ""
     return (
         '<tr>\n'
+        f'  <td class="row-number">{number}</td>\n'
         f'  <td class="date"><time datetime="{day}">{day:%b} {day.day}, {day.year}</time></td>\n'
         f'  <td class="work"><a class="article-title" href="{publisher_url}">{title}</a>{note_html}</td>\n'
         f'  <td class="person">{name_html}<span class="role {role}">{label}</span></td>\n'
@@ -82,44 +100,75 @@ def article_row(work):
     )
 
 
-def editor_table(works):
-    years = [date.fromisoformat(work["publication_date"]).year for work in works]
-    columns = range(min(years), max(years) + 1) if years else []
+def build_dataset(works, snapshot):
+    articles = sorted(map(public_article, works), key=lambda a: a["publication_date"], reverse=True)
+    article_years = [date.fromisoformat(a["publication_date"]).year for a in articles]
+    years = list(range(min(article_years), max(article_years) + 1)) if article_years else []
     edited = defaultdict(Counter)
     contributed = defaultdict(Counter)
-    for work, year in zip(works, years):
-        name = canonical_name(work["credited_name"])
-        if work["credit"] == "Edited by":
+    for article, year in zip(articles, article_years):
+        name = article["canonical_name"]
+        if article["role"] == "editor":
             edited[name][year] += 1
-        elif work["credit"] == "Contributed by":
+        elif article["role"] == "contributor":
             contributed[name][year] += 1
-
-    def count_row(label, edits, contributions):
-        cells = []
-        for year in columns:
-            value = str(edits[year])
-            if contributions[year]:
-                value += f"/{contributions[year]}"
-            cells.append("<td>0</td>" if value == "0" else f'<td class="nonzero">{value}</td>')
-        return f'<tr><th scope="row">{escape(label)}</th>{"".join(cells)}</tr>'
 
     names = sorted(edited.keys() | contributed.keys(),
                    key=lambda name: (-edited[name].total(), -contributed[name].total(), name.casefold()))
-    headings = "".join(f'<th scope="col">{year}</th>' for year in columns)
-    return [
-        f'<thead><tr><th scope="col">Editors</th>{headings}</tr></thead>',
-        "<tbody>",
-        *(count_row(name, edited[name], contributed[name]) for name in names),
-        "</tbody>",
-    ]
-
-
-def build_sections(works):
-    ordered = sorted(works, key=lambda work: work["publication_date"], reverse=True)
+    nas_members = json.loads(NAS_FILE.read_text(encoding="utf-8"))
+    people = []
+    for name in names:
+        annual_counts = [
+            {"year": year, "edited": edited[name][year], "contributed": contributed[name][year]}
+            for year in years
+        ]
+        people.append({"name": name, "nas_membership": nas_members.get(name), "annual_counts": annual_counts})
+    roles = Counter(a["role"] for a in articles)
     return {
-        "EDITOR_TABLE": editor_table(works),
-        "ARTICLES": [article_row(work) for work in ordered],
+        "journal": "Proceedings of the National Academy of Sciences",
+        "topic": "Tropical and Extratropical Cyclones Research",
+        "openalex_filter": WORKS_FILTER,
+        "openalex_count": snapshot["count"],
+        "openalex_count_checked_at": snapshot["checked_at"],
+        "listed_count": len(articles),
+        "role_counts": {role: roles[role] for role in ROLES.values()},
+        "years": years,
+        "people": people,
+        "articles": articles,
     }
+
+
+def editor_table(dataset):
+    headings = "".join(f'<th scope="col">{year}</th>' for year in dataset["years"])
+    rows = [f'<thead><tr><th scope="col" class="row-number" aria-label="Row number">#</th>'
+            f'<th scope="col">Editors</th>{headings}</tr></thead>', "<tbody>"]
+    for number, person in enumerate(dataset["people"], start=1):
+        cells = []
+        for counts in person["annual_counts"]:
+            value = str(counts["edited"])
+            if counts["contributed"]:
+                value += f'/{counts["contributed"]}'
+            cells.append("<td>0</td>" if value == "0" else f'<td class="nonzero">{value}</td>')
+        name = escape(person["name"])
+        heading = name
+        if membership := person["nas_membership"]:
+            url = escape(membership["profile_url"])
+            description = f'{escape(membership["membership_type"])}, elected {membership["election_year"]}'
+            heading += (f' <a class="nas-profile" href="{url}" '
+                        f'title="{description}" aria-label="NAS profile for {name}, {description}">NAS</a>')
+        rows.append(f'<tr><td class="row-number">{number}</td><th scope="row">{heading}</th>{"".join(cells)}</tr>')
+    return [*rows, "</tbody>"]
+
+
+def write_if_changed(path, contents):
+    if path.exists() and path.read_text(encoding="utf-8") == contents:
+        return
+    with TemporaryDirectory(dir=path.parent) as staging:
+        temporary = Path(staging) / path.name
+        temporary.write_text(contents, encoding="utf-8")
+        if path.exists():
+            temporary.chmod(path.stat().st_mode)
+        temporary.replace(path)
 
 
 def main():
@@ -129,11 +178,14 @@ def main():
     with (ROOT / "pnas_cyclone_editor_credits.csv").open(encoding="utf-8-sig", newline="") as source:
         works = list(csv.DictReader(source))
     snapshot = check_openalex() if options.check_openalex else json.loads(COUNT_FILE.read_text(encoding="utf-8"))
-    sections = build_sections(works)
-    sections["FRESHNESS"] = freshness(snapshot, len(works))
+    dataset = build_dataset(works, snapshot)
+    sections = {
+        "EDITOR_TABLE": editor_table(dataset),
+        "ARTICLES": [article_row(number, article) for number, article in enumerate(dataset["articles"], start=1)],
+        "FRESHNESS": freshness(snapshot, len(works)),
+    }
     index = ROOT / "index.html"
-    original = index.read_text(encoding="utf-8")
-    document = original
+    document = index.read_text(encoding="utf-8")
     for section, lines in sections.items():
         start, end = f"<!-- BEGIN {section} -->", f"<!-- END {section} -->"
         if document.count(start) != 1 or document.count(end) != 1:
@@ -143,17 +195,10 @@ def main():
         if not closing:
             raise ValueError(f"Reversed markers for {section}")
         document = before + start + "\n" + "\n".join(lines) + "\n" + end + after
-    if document != original:
-        with TemporaryDirectory(dir=index.parent) as staging:
-            temporary = Path(staging) / index.name
-            temporary.write_text(document, encoding="utf-8")
-            temporary.chmod(index.stat().st_mode)
-            temporary.replace(index)
+    write_if_changed(index, document)
+    write_if_changed(ROOT / "data.json", json.dumps(dataset, ensure_ascii=False, indent=2) + "\n")
     if options.check_openalex:
-        with TemporaryDirectory(dir=COUNT_FILE.parent) as staging:
-            temporary = Path(staging) / COUNT_FILE.name
-            temporary.write_text(json.dumps(snapshot, indent=2) + "\n", encoding="utf-8")
-            temporary.replace(COUNT_FILE)
+        write_if_changed(COUNT_FILE, json.dumps(snapshot, indent=2) + "\n")
         print(f"OpenAlex reports {snapshot['count']} works. The page lists {len(works)}.")
 
 

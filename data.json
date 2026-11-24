@@ -1,0 +1,916 @@
+{
+  "journal": "Proceedings of the National Academy of Sciences",
+  "topic": "Tropical and Extratropical Cyclones Research",
+  "openalex_filter": "primary_location.source.id:s125754415,topics.id:t11483,type:article,publication_year:2020-",
+  "openalex_count": 28,
+  "openalex_count_checked_at": "2026-11-24T01:45:03+00:00",
+  "listed_count": 28,
+  "role_counts": {
+    "editor": 25,
+    "contributor": 2,
+    "commentary": 1,
+    "unlisted": 0
+  },
+  "years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "people": [
+    {
+      "name": "Kerry Emanuel",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2007,
+        "profile_url": "https://www.nasonline.org/directory-entry/kerry-a-emanuel-wrvfe3/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 5,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 1,
+          "contributed": 1
+        },
+        {
+          "year": 2025,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 2,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Richard Rotunno",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2023,
+        "profile_url": "https://www.nasonline.org/directory-entry/richard-rotunno-axbmvz/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 2,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 1,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Isaac Held",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2003,
+        "profile_url": "https://www.nasonline.org/directory-entry/isaac-m-held-f4pkqb/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Michael E. Mann",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2020,
+        "profile_url": "https://www.nasonline.org/directory-entry/michael-e-mann-jl64sf/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 1
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Andrea Rinaldo",
+      "nas_membership": {
+        "membership_type": "International Member",
+        "election_year": 2012,
+        "profile_url": "https://www.nasonline.org/directory-entry/andrea-rinaldo-zsfest/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Anny Cazenave",
+      "nas_membership": {
+        "membership_type": "International Member",
+        "election_year": 2008,
+        "profile_url": "https://www.nasonline.org/directory-entry/anny-cazenave-tgy1jf/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Arild Underdal",
+      "nas_membership": {
+        "membership_type": "International Member",
+        "election_year": 2017,
+        "profile_url": "https://www.nasonline.org/directory-entry/arild-underdal-izbjv1/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Benjamin D. Santer",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2011,
+        "profile_url": "https://www.nasonline.org/directory-entry/benjamin-d-santer-vafs7f/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Catherine L. Kling",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2015,
+        "profile_url": "https://www.nasonline.org/directory-entry/catherine-l-kling-6fm9ua/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Dennis Hartmann",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2016,
+        "profile_url": "https://www.nasonline.org/directory-entry/dennis-l-hartmann-xo3mpv/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Eric D’Asaro",
+      "nas_membership": {
+        "membership_type": "Member",
+        "election_year": 2014,
+        "profile_url": "https://www.nasonline.org/directory-entry/eric-a-dasaro-tdnjnz/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "James B. Elsner",
+      "nas_membership": null,
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    },
+    {
+      "name": "Zhisheng An",
+      "nas_membership": {
+        "membership_type": "International Member",
+        "election_year": 2016,
+        "profile_url": "https://www.nasonline.org/directory-entry/zhisheng-an-pfnsiz/"
+      },
+      "annual_counts": [
+        {
+          "year": 2020,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2021,
+          "edited": 1,
+          "contributed": 0
+        },
+        {
+          "year": 2022,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2023,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2024,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2025,
+          "edited": 0,
+          "contributed": 0
+        },
+        {
+          "year": 2026,
+          "edited": 0,
+          "contributed": 0
+        }
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "title": "Weak prestorm submesoscale sea surface temperature gradients conducive to tropical cyclone intensification",
+      "publication_date": "2026-08-31",
+      "doi": "10.1073/pnas.2603330123",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2603330123",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Enhanced global storm surges by tropical cyclone poleward migration",
+      "publication_date": "2026-06-01",
+      "doi": "10.1073/pnas.2535524123",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2535524123",
+      "role": "editor",
+      "credited_name": "Richard Rotunno",
+      "canonical_name": "Richard Rotunno",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "On the large-scale radiative cooling induced by tropical cyclone activity",
+      "publication_date": "2026-05-22",
+      "doi": "10.1073/pnas.2526160123",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2526160123",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Intensified tropical cyclone activity in East Asia during the Maunder (solar) Minimum",
+      "publication_date": "2025-12-22",
+      "doi": "10.1073/pnas.2419759122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2419759122",
+      "role": "editor",
+      "credited_name": "Kerry Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Climate change impacts on tropical cyclone–induced power outage risk: Sociodemographic differences in outage burdens",
+      "publication_date": "2025-10-13",
+      "doi": "10.1073/pnas.2502266122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2502266122",
+      "role": "editor",
+      "credited_name": "Dennis Hartmann",
+      "canonical_name": "Dennis Hartmann",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Tropical cyclones expand faster at warmer relative sea surface temperature",
+      "publication_date": "2025-09-15",
+      "doi": "10.1073/pnas.2424385122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2424385122",
+      "role": "editor",
+      "credited_name": "Richard Rotunno",
+      "canonical_name": "Richard Rotunno",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "The intensification of the strongest nor’easters",
+      "publication_date": "2025-07-14",
+      "doi": "10.1073/pnas.2510029122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2510029122",
+      "role": "contributor",
+      "credited_name": "Michael E. Mann",
+      "canonical_name": "Michael E. Mann",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Can AI weather models predict out-of-distribution gray swan tropical cyclones?",
+      "publication_date": "2025-05-20",
+      "doi": "10.1073/pnas.2420914122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2420914122",
+      "role": "editor",
+      "credited_name": "Isaac Held",
+      "canonical_name": "Isaac Held",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Advancing forecasting capabilities: A contrastive learning model for forecasting tropical cyclone rapid intensification",
+      "publication_date": "2025-01-21",
+      "doi": "10.1073/pnas.2415501122",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2415501122",
+      "role": "editor",
+      "credited_name": "Richard Rotunno",
+      "canonical_name": "Richard Rotunno",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Cyclone Jasper’s rains in the context of climate change",
+      "publication_date": "2024-04-01",
+      "doi": "10.1073/pnas.2400292121",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2400292121",
+      "role": "contributor",
+      "credited_name": "Kerry Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "The growing inadequacy of an open-ended Saffir–Simpson hurricane wind scale in a warming world",
+      "publication_date": "2024-02-05",
+      "doi": "10.1073/pnas.2308901121",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2308901121",
+      "role": "editor",
+      "credited_name": "Kerry Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Hurricane wind regimes for forests of North America",
+      "publication_date": "2023-10-10",
+      "doi": "10.1073/pnas.2309076120",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2309076120",
+      "role": "editor",
+      "credited_name": "James B. Elsner",
+      "canonical_name": "James B. Elsner",
+      "accepting_editorial_board_member": "Robert E. Dickinson",
+      "note": "PNAS identifies James B. Elsner as the guest editor."
+    },
+    {
+      "title": "Near-term tropical cyclone risk and coupled Earth system model biases",
+      "publication_date": "2023-08-07",
+      "doi": "10.1073/pnas.2209631120",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2209631120",
+      "role": "editor",
+      "credited_name": "Isaac Held",
+      "canonical_name": "Isaac Held",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Elevated atmospheric CO₂ drove an increase in tropical cyclone intensity during the early Toarcian hyperthermal",
+      "publication_date": "2023-07-10",
+      "doi": "10.1073/pnas.2301018120",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2301018120",
+      "role": "editor",
+      "credited_name": "Kerry Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Prolonged thermocline warming by near-inertial internal waves in the wakes of tropical cyclones",
+      "publication_date": "2023-06-20",
+      "doi": "10.1073/pnas.2301664120",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2301664120",
+      "role": "editor",
+      "credited_name": "Eric D’Asaro",
+      "canonical_name": "Eric D’Asaro",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Pelagic seabirds reduce risk by flying into the eye of the storm",
+      "publication_date": "2022-10-04",
+      "doi": "10.1073/pnas.2212925119",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2212925119",
+      "role": "editor",
+      "credited_name": "Andrea Rinaldo",
+      "canonical_name": "Andrea Rinaldo",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Hurricane annual cycle controlled by both seeds and genesis probability",
+      "publication_date": "2021-10-05",
+      "doi": "10.1073/pnas.2108397118",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2108397118",
+      "role": "editor",
+      "credited_name": "Michael E. Mann",
+      "canonical_name": "Michael E. Mann",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Recent increases in tropical cyclone precipitation extremes over the US east coast",
+      "publication_date": "2021-10-04",
+      "doi": "10.1073/pnas.2105636118",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2105636118",
+      "role": "editor",
+      "credited_name": "Zhisheng An",
+      "canonical_name": "Zhisheng An",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Government effectiveness and institutions as determinants of tropical cyclone mortality",
+      "publication_date": "2020-11-03",
+      "doi": "10.1073/pnas.2006213117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2006213117",
+      "role": "editor",
+      "credited_name": "Arild Underdal",
+      "canonical_name": "Arild Underdal",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "The critical role of cloud–infrared radiation feedback in tropical cyclone development",
+      "publication_date": "2020-10-26",
+      "doi": "10.1073/pnas.2013584117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2013584117",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Summertime stationary waves integrate tropical and extratropical impacts on tropical cyclone activity",
+      "publication_date": "2020-08-31",
+      "doi": "10.1073/pnas.2010547117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2010547117",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Greater flood risks in response to slowdown of tropical cyclones over the coast of China",
+      "publication_date": "2020-06-15",
+      "doi": "10.1073/pnas.1918987117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1918987117",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Evidence that hurricanes are getting stronger",
+      "publication_date": "2020-05-29",
+      "doi": "10.1073/pnas.2007742117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.2007742117",
+      "role": "commentary",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Global increase in major tropical cyclone exceedance probability over the past four decades",
+      "publication_date": "2020-05-18",
+      "doi": "10.1073/pnas.1920849117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1920849117",
+      "role": "editor",
+      "credited_name": "Benjamin D. Santer",
+      "canonical_name": "Benjamin D. Santer",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Detected climatic change in global distribution of tropical cyclones",
+      "publication_date": "2020-05-04",
+      "doi": "10.1073/pnas.1922500117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1922500117",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Coastal wetlands reduce property damage during tropical cyclones",
+      "publication_date": "2020-03-02",
+      "doi": "10.1073/pnas.1915169117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1915169117",
+      "role": "editor",
+      "credited_name": "Catherine L. Kling",
+      "canonical_name": "Catherine L. Kling",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "The typhoon-induced drying of the Maritime Continent",
+      "publication_date": "2020-02-10",
+      "doi": "10.1073/pnas.1915364117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1915364117",
+      "role": "editor",
+      "credited_name": "Kerry A. Emanuel",
+      "canonical_name": "Kerry Emanuel",
+      "accepting_editorial_board_member": null,
+      "note": null
+    },
+    {
+      "title": "Probabilistic reanalysis of storm surge extremes in Europe",
+      "publication_date": "2020-01-13",
+      "doi": "10.1073/pnas.1913049117",
+      "credit_source_url": "https://www.pnas.org/doi/full/10.1073/pnas.1913049117",
+      "role": "editor",
+      "credited_name": "Anny Cazenave",
+      "canonical_name": "Anny Cazenave",
+      "accepting_editorial_board_member": null,
+      "note": null
+    }
+  ]
+}
