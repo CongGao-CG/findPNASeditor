@@ -54,7 +54,7 @@ h2 { font-size: clamp(1.55rem, 2.7vw, 2.1rem); font-weight: 640; letter-spacing:
 .table-scroll { overflow-x: auto; }
 .year-table { min-width: 44rem; border-spacing: 0; font-variant-numeric: tabular-nums; }
 .year-table :is(th, td) { padding: .49rem .7rem; text-align: left; font-size: .9rem; }
-.year-table tr > :nth-child(2) { position: sticky; left: 0; text-align: left; white-space: nowrap; }
+.year-table tr > :nth-child(2) { position: sticky; left: 0; width: 1%; text-align: left; white-space: nowrap; }
 .year-table tbody th { background: white; color: inherit; border-top: 0; font-weight: 550; }
 .editor-name, a.credit-name { color: #174e55; text-decoration: underline; text-decoration-color: #94b3b4; }
 .editor-name:hover, a.credit-name:hover { color: var(--teal); text-decoration-color: currentColor; }

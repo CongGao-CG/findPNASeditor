@@ -119,15 +119,19 @@ def build_dataset(works, snapshot):
     years = list(range(min(article_years), max(article_years) + 1)) if article_years else []
     edited = defaultdict(Counter)
     contributed = defaultdict(Counter)
-    for article, year in zip(articles, article_years):
+    first_appearance = {}
+    for position, (article, year) in enumerate(zip(articles, article_years)):
         name = article["canonical_name"]
+        first_appearance.setdefault(name, position)
         if article["role"] == "editor":
             edited[name][year] += 1
         elif article["role"] == "contributor":
             contributed[name][year] += 1
 
-    names = sorted(edited.keys() | contributed.keys(),
-                   key=lambda name: (-edited[name].total(), -contributed[name].total(), name.casefold()))
+    names = sorted(
+        edited.keys() | contributed.keys(),
+        key=lambda name: (not profiles.get(name, {}).get("nas_membership"), first_appearance[name]),
+    )
     people = []
     for name in names:
         annual_counts = [
